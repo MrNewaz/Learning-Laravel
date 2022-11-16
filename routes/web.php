@@ -15,22 +15,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('listings', [
+        'heading' => 'Latest Listings',
+        'listings' => [
+            [
+                'id' => 1,
+                'title' => 'My first listing',
+                'description' => 'This is my first listing',
+            ],
+            [
+                'id' => 2,
+                'title' => 'My Second listing',
+                'description' => 'This is my first listing',
+            ]
+        ]
+    ]);
 });
 
-Route::get('/hello', function () {
-    return response ('<h1>Hello World</h1>',200);
-});
-
-Route::get('/hello/{id}', function ($id) {
-    // ddd($id);
-    return response ('<h1>Hello '.$id.'</h1>',200);
-}) -> where('id','[0-9]+');
 
 
-Route::get('/hm', function (Request $request) {
-   
-    $name = $request->input('name');
-    return response ('<h1>Hello '.$name.'</h1>',200);
+// Route::get('/hello/{id}', function ($id) {
+//     // ddd($id);
+//     return response ('<h1>Hello '.$id.'</h1>',200);
+// }) -> where('id','[0-9]+');
 
-}) ;
+
+// Route::get('/hm', function (Request $request) {
+//     $name = $request->input('name');
+//     return response ('<h1>Hello '.$name.'</h1>',200);
+// });
