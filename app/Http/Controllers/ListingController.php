@@ -47,6 +47,6 @@ class ListingController extends Controller
 
         Listing::create($attributes);
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Listing created successfully!');
     }
 }
